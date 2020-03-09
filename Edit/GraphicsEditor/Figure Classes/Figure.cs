@@ -25,9 +25,8 @@ namespace Edit
         }
 
 
-        public virtual void Draw(Graphics graphics)
-        {
-        }
+        public abstract void Draw(Graphics graphics);
+        
 
         public static void PreRender()
         {

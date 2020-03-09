@@ -15,6 +15,9 @@ namespace Edit
 
         public static int BorderWidth { get; set; } = 3;
 
+
+        private static MethodInfo RenderMethod = null;
+
         //Программная инициализация списка (для 1 задания)
         public static void ListInitialization(Model model)
         {
@@ -41,16 +44,15 @@ namespace Edit
             bool result = false;
             if (renderPoints.Count() > 1)
             {
-                MethodInfo draw = data.Types[index].GetMethod("PreRender");
                 result = true;
                 object value;
                 if (data.Types[index].Name == "RegularPolygon")
                 {
-                    value = draw.Invoke(null, new object[] { graphics, Sides, renderPoints.ToArray() });
+                    value = RenderMethod.Invoke(null, new object[] { graphics, Sides, renderPoints.ToArray() });
                 }
                 else
                 {
-                    value = draw.Invoke(null, new object[] { graphics, renderPoints.ToArray() });
+                    value = RenderMethod.Invoke(null, new object[] { graphics, renderPoints.ToArray() });
                 }
                 if ((bool)value)
                 {
@@ -92,10 +94,11 @@ namespace Edit
             }
         }
 
-        public static void OnMouseLeftClickEvent(bool renderingFlag, PointF point)
+        public static void OnMouseLeftClickEvent(bool renderingFlag, PointF point, int index, Model data)
         {
             if (!renderingFlag)
             {
+                RenderMethod = data.Types[index].GetMethod("PreRender");
                 renderPoints.Add(point);   //добавление еще одной точки, если отрисовка только началась
             }
             renderPoints.Add(point);

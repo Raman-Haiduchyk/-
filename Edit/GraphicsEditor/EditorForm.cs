@@ -59,7 +59,7 @@ namespace Edit
         {
             if (e.Button == MouseButtons.Left)
             {
-                Control.OnMouseLeftClickEvent(isRendering, e.Location);
+                Control.OnMouseLeftClickEvent(isRendering, e.Location, instrumentBox.SelectedIndex, Data);
                 pictureBox.Invalidate();
             }
             else if (e.Button == MouseButtons.Right)

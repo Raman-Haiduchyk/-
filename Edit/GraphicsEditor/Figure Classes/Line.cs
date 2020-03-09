@@ -20,7 +20,6 @@ namespace Edit
 
         public override void Draw(Graphics graphics)
         {
-            base.Draw(graphics);
             graphics.DrawLine(FigurePen, A, B);
         }
 

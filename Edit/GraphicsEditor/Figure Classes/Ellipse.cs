@@ -29,7 +29,6 @@ namespace Edit
 
         public override void Draw(Graphics graphics)
         {
-            base.Draw(graphics);
             graphics.FillEllipse(FigureBrush, Center.X - MajorSemiaxis, Center.Y - MinorSemiaxis, 
                 2 * MajorSemiaxis, 2 * MinorSemiaxis);
             graphics.DrawEllipse(FigurePen, Center.X - MajorSemiaxis, Center.Y - MinorSemiaxis, 
