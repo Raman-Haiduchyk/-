@@ -30,6 +30,12 @@
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.instrumentBox = new System.Windows.Forms.ComboBox();
+            this.penColorDialog = new System.Windows.Forms.ColorDialog();
+            this.brushColorDialog = new System.Windows.Forms.ColorDialog();
+            this.penColorBtn = new System.Windows.Forms.Button();
+            this.brushColorBtn = new System.Windows.Forms.Button();
+            this.penLbl = new System.Windows.Forms.Label();
+            this.brushLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,11 +60,59 @@
             this.instrumentBox.Size = new System.Drawing.Size(152, 23);
             this.instrumentBox.TabIndex = 3;
             // 
+            // penColorDialog
+            // 
+            this.penColorDialog.FullOpen = true;
+            // 
+            // brushColorDialog
+            // 
+            this.brushColorDialog.FullOpen = true;
+            // 
+            // penColorBtn
+            // 
+            this.penColorBtn.Location = new System.Drawing.Point(114, 82);
+            this.penColorBtn.Name = "penColorBtn";
+            this.penColorBtn.Size = new System.Drawing.Size(50, 50);
+            this.penColorBtn.TabIndex = 4;
+            this.penColorBtn.UseVisualStyleBackColor = true;
+            this.penColorBtn.Click += new System.EventHandler(this.penColorBtn_Click);
+            // 
+            // brushColorBtn
+            // 
+            this.brushColorBtn.Location = new System.Drawing.Point(114, 138);
+            this.brushColorBtn.Name = "brushColorBtn";
+            this.brushColorBtn.Size = new System.Drawing.Size(50, 50);
+            this.brushColorBtn.TabIndex = 5;
+            this.brushColorBtn.UseVisualStyleBackColor = true;
+            this.brushColorBtn.Click += new System.EventHandler(this.brushColorBtn_Click);
+            // 
+            // penLbl
+            // 
+            this.penLbl.AutoSize = true;
+            this.penLbl.Location = new System.Drawing.Point(12, 100);
+            this.penLbl.Name = "penLbl";
+            this.penLbl.Size = new System.Drawing.Size(79, 15);
+            this.penLbl.TabIndex = 6;
+            this.penLbl.Text = "Pen Color";
+            // 
+            // brushLbl
+            // 
+            this.brushLbl.AutoSize = true;
+            this.brushLbl.Location = new System.Drawing.Point(12, 156);
+            this.brushLbl.Name = "brushLbl";
+            this.brushLbl.Size = new System.Drawing.Size(87, 15);
+            this.brushLbl.TabIndex = 7;
+            this.brushLbl.Text = "BrushColor";
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 450);
+            this.Controls.Add(this.brushLbl);
+            this.Controls.Add(this.penLbl);
+            this.Controls.Add(this.brushColorBtn);
+            this.Controls.Add(this.penColorBtn);
             this.Controls.Add(this.instrumentBox);
             this.Controls.Add(this.pictureBox);
             this.DoubleBuffered = true;
@@ -68,12 +122,19 @@
             this.Text = "Editor";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ComboBox instrumentBox;
+        private System.Windows.Forms.ColorDialog penColorDialog;
+        private System.Windows.Forms.ColorDialog brushColorDialog;
+        private System.Windows.Forms.Button penColorBtn;
+        private System.Windows.Forms.Button brushColorBtn;
+        private System.Windows.Forms.Label penLbl;
+        private System.Windows.Forms.Label brushLbl;
     }
 }
 

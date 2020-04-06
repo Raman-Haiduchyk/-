@@ -13,17 +13,18 @@ namespace Edit
 
         //protected int layout { get; set; }  управление слоями в будущем
 
-        protected static Pen FigurePen;
+        protected Pen FigurePen;
 
-        protected static SolidBrush FigureBrush;       
-      
-        protected Figure(string str, Color brushCol, int borderWidth) 
+        protected SolidBrush FigureBrush;
+
+        protected static Color prevCol = Color.FromArgb(100, 0, 0, 0);
+
+        protected Figure(string str, Color brushCol, Color penColor, int borderWidth) 
         {
             Name = str;
-            FigurePen = new Pen(Color.FromKnownColor(KnownColor.Black), borderWidth);
+            FigurePen = new Pen(penColor, borderWidth);
             FigureBrush = new SolidBrush(brushCol);
         }
-
 
         public abstract void Draw(Graphics graphics);
         

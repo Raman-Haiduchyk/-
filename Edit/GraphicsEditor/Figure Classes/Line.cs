@@ -11,7 +11,7 @@ namespace Edit
     {
         protected PointF A, B;
 
-        public Line(string str, Color brushCol, int borderWidth, params PointF[] pts) : base(str, brushCol, borderWidth)
+        public Line(string str, Color brushCol, Color penColor, int borderWidth, params PointF[] pts) : base(str, brushCol, penColor, borderWidth)
         {
             A = pts[0];
             B = pts[1];
@@ -27,7 +27,7 @@ namespace Edit
         {
             if (drawPoints.Count() == 2)
             {
-                graphics.DrawLine(FigurePen, drawPoints[0], drawPoints[1]);
+                graphics.DrawLine(new Pen(prevCol), drawPoints[0], drawPoints[1]);
                 return false;
             }
             else if (drawPoints.Count() > 2)

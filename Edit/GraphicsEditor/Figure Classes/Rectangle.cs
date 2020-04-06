@@ -14,7 +14,7 @@ namespace Edit
 
         // В конструктор передаются левая верхняя
         // и правая нижняя точки
-        public Rectangle(string str, Color brushCol, int borderWidth, params PointF[] pts):base(str, brushCol, borderWidth)
+        public Rectangle(string str, Color brushCol, Color penColor, int borderWidth, params PointF[] pts):base(str, brushCol, penColor, borderWidth)
         {
             PointF A = pts[0];
             PointF B = pts[1];
@@ -34,7 +34,7 @@ namespace Edit
             {
                 PointF[] array = new PointF[] { renderPoints[0], new PointF(renderPoints[1].X, renderPoints[0].Y), 
                     renderPoints[1], new PointF(renderPoints[0].X, renderPoints[1].Y) };
-                graphics.DrawPolygon(FigurePen, array);
+                graphics.DrawPolygon(new Pen(prevCol), array);
                 return false;
             }
             else if (renderPoints.Count() > 2)

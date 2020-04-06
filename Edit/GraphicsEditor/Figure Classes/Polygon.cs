@@ -9,12 +9,12 @@ namespace Edit
     {
         protected List<PointF> Points;      //множество точек многоугольника
 
-        public Polygon(string str, Color brushCol, int borderWidth, params PointF[] points) : base(str, brushCol, borderWidth)
+        public Polygon(string str, Color brushCol, Color penColor, int borderWidth, params PointF[] points) : base(str, brushCol, penColor, borderWidth)
         {
             Points = new List<PointF>(points);
         }
 
-        protected Polygon(string str, Color brushCol, int borderWidth) : base(str, brushCol, borderWidth)
+        protected Polygon(string str, Color brushCol, Color penColor, int borderWidth) : base(str, brushCol, penColor, borderWidth)
         { 
         }
 
@@ -28,7 +28,7 @@ namespace Edit
         {
             for (int i = 0; i < renderPoints.Count() - 1; i++) 
             {
-                graphics.DrawLine(FigurePen, renderPoints[i], renderPoints[i + 1]);
+                graphics.DrawLine(new Pen(prevCol), renderPoints[i], renderPoints[i + 1]);
             }
             return false;
         }

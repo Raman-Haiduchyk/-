@@ -14,7 +14,7 @@ namespace Edit
 
         // В конструктор передаются левая верхняя и
         // правая нижняя точки, ограничивающего прямоугольника
-        public Ellipse(string str, Color brushCol, int borderWidth, params PointF[] points) : base(str, brushCol, borderWidth)
+        public Ellipse(string str, Color brushCol, Color penColor, int borderWidth, params PointF[] points) : base(str, brushCol, penColor, borderWidth)
         { 
             PointF A = points[0];
             PointF B = points[1];
@@ -23,7 +23,7 @@ namespace Edit
             MinorSemiaxis = Math.Abs(B.Y - A.Y) / 2;
         }
 
-        protected Ellipse(string str, Color brushCol, int borderWidth) : base(str, brushCol, borderWidth)
+        protected Ellipse(string str, Color brushCol, Color penColor, int borderWidth) : base(str, brushCol, penColor, borderWidth)
         {
         }
 
@@ -44,7 +44,7 @@ namespace Edit
                 PointF B = renderPoints[1];
                 float a = (B.X - A.X);
                 float b = (B.Y - A.Y);
-                graphics.DrawEllipse(FigurePen, A.X, A.Y, a, b);
+                graphics.DrawEllipse(new Pen(prevCol), A.X, A.Y, a, b);
                 return false;
             }
             else if (renderPoints.Count() > 2)

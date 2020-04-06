@@ -10,7 +10,7 @@ namespace Edit
 
         // В конструктор передается центр окружности
         // и крайняя точка ее радиуса
-        public Circle(string str, Color brushCol, int borderWidth, params PointF[] points) : base(str, brushCol, borderWidth)
+        public Circle(string str, Color brushCol, Color penColor, int borderWidth, params PointF[] points) : base(str, brushCol, penColor, borderWidth)
         {
             PointF A = points[0];
             PointF B = points[1];
@@ -27,7 +27,7 @@ namespace Edit
                 PointF A = renderPoints[0];
                 PointF B = renderPoints[1];
                 float radius = (float)Math.Sqrt(Math.Pow(A.X - B.X, 2) + Math.Pow(A.Y - B.Y, 2));
-                graphics.DrawEllipse(FigurePen, A.X - radius, A.Y - radius, 2 * radius, 2 * radius);
+                graphics.DrawEllipse(new Pen(prevCol), A.X - radius, A.Y - radius, 2 * radius, 2 * radius);
                 return false;
             }
             else if (renderPoints.Count() > 2)

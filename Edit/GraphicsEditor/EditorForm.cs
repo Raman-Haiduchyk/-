@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Edit
 {
@@ -15,6 +16,10 @@ namespace Edit
         {
             InitializeComponent();
             Data = new Model();
+            Control.penColor = penColorDialog.Color;
+            Control.brushColor = brushColorDialog.Color;
+            penColorBtn.BackColor = Control.penColor;
+            brushColorBtn.BackColor = Control.brushColor;
             Control.ListInitialization(Data);
             // получение списка всех классов для рисования
             Data.Types = new List<Type>(Assembling.ReflectiveEnumerator.GetEnumerableOfType<Figure>());
@@ -82,6 +87,18 @@ namespace Edit
             pictureBox.Invalidate();
         }
 
+        private void penColorBtn_Click(object sender, EventArgs e)
+        {
+            if (penColorDialog.ShowDialog() == DialogResult.OK)
+            Control.penColor = penColorDialog.Color;
+            penColorBtn.BackColor = Control.penColor;
+        }
 
+        private void brushColorBtn_Click(object sender, EventArgs e)
+        {
+            if (brushColorDialog.ShowDialog() == DialogResult.OK)
+            Control.brushColor = brushColorDialog.Color;
+            brushColorBtn.BackColor = Control.brushColor;
+        }
     }
 }

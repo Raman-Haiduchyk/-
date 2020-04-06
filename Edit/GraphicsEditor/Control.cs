@@ -15,6 +15,10 @@ namespace Edit
 
         public static int BorderWidth { get; set; } = 3;
 
+        public static Color penColor { get; set; }
+
+        public static Color brushColor { get; set; }
+
 
         private static MethodInfo PreviewMethod = null;
 
@@ -22,10 +26,10 @@ namespace Edit
         public static void ListInitialization(Model model)
         {
             model.Figures = new List<Figure>();
-            Rectangle rect = new Rectangle("Rect", Color.FromKnownColor(KnownColor.White), BorderWidth, 
+            Rectangle rect = new Rectangle("Rect", brushColor, penColor, BorderWidth, 
                                             new PointF(20, 20), new PointF(40, 40));
             model.Figures.Add(rect);
-            Parallelogram par = new Parallelogram("par", Color.FromKnownColor(KnownColor.White), BorderWidth, 
+            Parallelogram par = new Parallelogram("par", brushColor, penColor, BorderWidth, 
                                                    new PointF(6, 100), new PointF(100, 150), new PointF(120, 200));
             model.Figures.Add(par);
         }
@@ -46,13 +50,14 @@ namespace Edit
             {
                 result = true;
                 object value;
-                if (data.Types[index].Name == "RegularPolygon")
-                {
-                    value = PreviewMethod.Invoke(null, new object[] { graphics, Sides, renderPoints.ToArray() });
-                }
-                else
+                //if (data.Types[index].Name == "RegularPolygon")
+                try
                 {
                     value = PreviewMethod.Invoke(null, new object[] { graphics, renderPoints.ToArray() });
+                }
+                catch
+                {
+                    value = PreviewMethod.Invoke(null, new object[] { graphics, Sides, renderPoints.ToArray() });
                 }
                 if ((bool)value)
                 {
@@ -68,16 +73,17 @@ namespace Edit
             renderPoints.RemoveAt(renderPoints.Count() - 1);
             try
             {
-                if (data.Types[index].Name == "RegularPolygon")
+                //if (data.Types[index].Name == "RegularPolygon")
+                try
                 {
                     Figure shape = (Figure)Activator.CreateInstance(data.Types[index], new object[] 
-                    { "pol", Color.FromKnownColor(KnownColor.White), BorderWidth, Sides, renderPoints.ToArray() });
+                    { "pol", brushColor, penColor, BorderWidth, Sides, renderPoints.ToArray() });
                     data.Figures.Add(shape);
                 }
-                else
+                catch
                 {
                     Figure shape = (Figure)Activator.CreateInstance(data.Types[index], new object[] 
-                    { "pol", Color.FromKnownColor(KnownColor.White), BorderWidth, renderPoints.ToArray() });
+                    { "pol", brushColor, penColor, BorderWidth, renderPoints.ToArray() });
                     data.Figures.Add(shape);
                 }
             }
@@ -129,7 +135,7 @@ namespace Edit
         //завершение отрисовки многоугольника по двойному нажатию
         public static void OnMouseDoubleClickEvent(bool renderingFlag, PointF point, int index, Model data)
         {
-            if (renderingFlag && data.Types[index].Name == "Polygon")
+            if (renderingFlag && data.Types[index].Name == "Polygon" && renderPoints.Count > 2)
             {
                 renderPoints.RemoveAt(renderPoints.Count() - 1);
                 renderPoints.Add(point);

@@ -11,7 +11,7 @@ namespace Edit
 
         // В конструктор передаются три точки,
         // по которым достраивается четвертая
-        public Parallelogram(string str, Color brushCol, int borderWidth, params PointF[] points) : base(str, brushCol, borderWidth)
+        public Parallelogram(string str, Color brushCol, Color penColor, int borderWidth, params PointF[] points) : base(str, brushCol, penColor, borderWidth)
         {
             PointF A = points[0];
             PointF B = points[1];
@@ -34,7 +34,7 @@ namespace Edit
                 PointF A = new PointF((renderPoints[0].X + (renderPoints[2].X - renderPoints[1].X)), 
                     (renderPoints[0].Y + (renderPoints[2].Y - renderPoints[1].Y)));
                 PointF[] pointsArray = new PointF[] { renderPoints[0], renderPoints[1], renderPoints[2], A };
-                graphics.DrawPolygon(FigurePen, pointsArray);
+                graphics.DrawPolygon(new Pen(prevCol), pointsArray);
                 return false;
             }
             else if (renderPoints.Count() > 3)
@@ -43,7 +43,7 @@ namespace Edit
             }
             else
             {
-                graphics.DrawLine(FigurePen, renderPoints[0], renderPoints[1]);
+                graphics.DrawLine(new Pen(prevCol), renderPoints[0], renderPoints[1]);
                 return false;
             }
         }

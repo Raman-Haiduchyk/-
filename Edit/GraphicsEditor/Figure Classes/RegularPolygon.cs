@@ -14,7 +14,7 @@ namespace Edit
 
         // В конструктор передаются кол-во сторон sideCount
         // и две точки: центр и любая точка на описанной окружности
-        public RegularPolygon(string str, Color brushCol, int borderWidth, int sideCount, params PointF[] points) :base(str, brushCol, borderWidth) 
+        public RegularPolygon(string str, Color brushCol, Color penColor, int borderWidth, int sideCount, params PointF[] points) :base(str, brushCol, penColor, borderWidth) 
         {
             PointF A = points[0];
             PointF B = points[1];
@@ -52,7 +52,7 @@ namespace Edit
                     y = A.Y + (rad * (float)Math.Cos(i * angle + polygonAngle));
                     array.Add(new PointF(x, y));
                 }      
-                graphics.DrawPolygon(FigurePen, array.ToArray());
+                graphics.DrawPolygon(new Pen(prevCol), array.ToArray());
                 return false;
             }
             else if (renderPoints.Count() > 2)
