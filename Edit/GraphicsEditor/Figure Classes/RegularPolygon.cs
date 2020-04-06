@@ -33,7 +33,7 @@ namespace Edit
 
         }
 
-        public static new bool PreRender(Graphics graphics, int count, params PointF[] renderPoints)
+        public static new bool Preview(Graphics graphics, int count, params PointF[] renderPoints)
         {
             if (renderPoints.Count() == 2)
             {

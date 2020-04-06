@@ -16,7 +16,7 @@ namespace Edit
         public static int BorderWidth { get; set; } = 3;
 
 
-        private static MethodInfo RenderMethod = null;
+        private static MethodInfo PreviewMethod = null;
 
         //Программная инициализация списка (для 1 задания)
         public static void ListInitialization(Model model)
@@ -38,8 +38,8 @@ namespace Edit
                 figure.Draw(graphics);
             }
         }
-
-        public static bool PreRenderFigure(Graphics graphics, int index, Model data)
+        
+        public static bool PreviewFigure(Graphics graphics, int index, Model data)
         {
             bool result = false;
             if (renderPoints.Count() > 1)
@@ -48,11 +48,11 @@ namespace Edit
                 object value;
                 if (data.Types[index].Name == "RegularPolygon")
                 {
-                    value = RenderMethod.Invoke(null, new object[] { graphics, Sides, renderPoints.ToArray() });
+                    value = PreviewMethod.Invoke(null, new object[] { graphics, Sides, renderPoints.ToArray() });
                 }
                 else
                 {
-                    value = RenderMethod.Invoke(null, new object[] { graphics, renderPoints.ToArray() });
+                    value = PreviewMethod.Invoke(null, new object[] { graphics, renderPoints.ToArray() });
                 }
                 if ((bool)value)
                 {
@@ -98,7 +98,18 @@ namespace Edit
         {
             if (!renderingFlag)
             {
-                RenderMethod = data.Types[index].GetMethod("PreRender");
+                MethodInfo[] methods = data.Types[index].GetMethods();
+                foreach (var method in methods)
+                {
+                    if (method.IsStatic)
+                    {
+                        PreviewMethod = method;
+                        break;
+                    }
+                }
+                /*
+                PreviewMethod = data.Types[index].GetMethod("Preview");
+                */
                 renderPoints.Add(point);   //добавление еще одной точки, если отрисовка только началась
             }
             renderPoints.Add(point);

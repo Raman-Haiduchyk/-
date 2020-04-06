@@ -28,7 +28,7 @@ namespace Edit
         public abstract void Draw(Graphics graphics);
         
 
-        public static void PreRender()
+        public static void Preview()
         {
         }
 

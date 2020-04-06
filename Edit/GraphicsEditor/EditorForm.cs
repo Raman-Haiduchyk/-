@@ -25,24 +25,25 @@ namespace Edit
             }
             instrumentBox.SelectedIndex = 0;
 
-
             pictureBox.MouseWheel += new MouseEventHandler(pictureBox_MouseWheel);
+
             void pictureBox_MouseWheel(object sender, MouseEventArgs e)
             {
-                if (e.Delta > 0)
-                {
-                    if (Control.Sides < 15)
+                if (isRendering)
+                    if (e.Delta > 0)
                     {
-                        Control.Sides++;
+                        if (Control.Sides < 15)
+                        {
+                            Control.Sides++;
+                            pictureBox.Invalidate();
+                        }
+                    }
+                    else
+                    {
+                        if (Control.Sides > 3)
+                        Control.Sides--;
                         pictureBox.Invalidate();
                     }
-                }
-                else
-                {
-                    if (Control.Sides > 3)
-                    Control.Sides--;
-                    pictureBox.Invalidate();
-                }
             }
         }
 
@@ -51,7 +52,7 @@ namespace Edit
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             Control.DrawFigureList(Data, e.Graphics);
-            isRendering = Control.PreRenderFigure(e.Graphics, instrumentBox.SelectedIndex, Data);
+            isRendering = Control.PreviewFigure(e.Graphics, instrumentBox.SelectedIndex, Data);
             if (!isRendering) { Control.DrawFigureList(Data, e.Graphics); }
         }
 

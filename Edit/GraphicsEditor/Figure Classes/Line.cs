@@ -23,7 +23,7 @@ namespace Edit
             graphics.DrawLine(FigurePen, A, B);
         }
 
-        public static bool PreRender(Graphics graphics, params PointF[] drawPoints)
+        public static bool Preview(Graphics graphics, params PointF[] drawPoints)
         {
             if (drawPoints.Count() == 2)
             {

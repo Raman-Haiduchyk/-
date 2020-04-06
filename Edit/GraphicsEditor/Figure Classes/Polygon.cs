@@ -24,7 +24,7 @@ namespace Edit
             graphics.DrawPolygon(FigurePen, Points.ToArray());
         } 
 
-        public static bool PreRender(Graphics graphics, params PointF[] renderPoints)
+        public static bool Preview(Graphics graphics, params PointF[] renderPoints)
         {
             for (int i = 0; i < renderPoints.Count() - 1; i++) 
             {
