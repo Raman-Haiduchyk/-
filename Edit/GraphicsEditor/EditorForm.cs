@@ -65,7 +65,7 @@ namespace Edit
         {
             if (e.Button == MouseButtons.Left)
             {
-                Control.OnMouseLeftClickEvent(isRendering, e.Location, instrumentBox.SelectedIndex, Data);
+                Control.OnMouseLeftClickEvent(isRendering, e.Location);
                 pictureBox.Invalidate();
             }
             else if (e.Button == MouseButtons.Right)
@@ -87,6 +87,7 @@ namespace Edit
             pictureBox.Invalidate();
         }
 
+        // настройка цветов
         private void penColorBtn_Click(object sender, EventArgs e)
         {
             if (penColorDialog.ShowDialog() == DialogResult.OK)
@@ -99,6 +100,13 @@ namespace Edit
             if (brushColorDialog.ShowDialog() == DialogResult.OK)
             Control.brushColor = brushColorDialog.Color;
             brushColorBtn.BackColor = Control.brushColor;
+        }
+
+
+        //выбор инструмента рисования
+        private void instrumentBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Control.OnBoxChangeEvent(instrumentBox.SelectedIndex, Data);
         }
     }
 }

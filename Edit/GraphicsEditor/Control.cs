@@ -91,6 +91,21 @@ namespace Edit
             renderPoints.Clear();
         }
 
+
+        //поиск метода preview (является единственным статическим методом класса)
+        public static void OnBoxChangeEvent(int index, Model data)
+        {
+            MethodInfo[] methods = data.Types[index].GetMethods();
+            foreach (var method in methods)
+            {
+                if (method.IsStatic)
+                {
+                    PreviewMethod = method;
+                    break;
+                }
+            }
+        }
+
         public static void OnMouseMoveEvent(bool renderingFlag, PointF point)
         {
             if (renderingFlag)
@@ -100,22 +115,10 @@ namespace Edit
             }
         }
 
-        public static void OnMouseLeftClickEvent(bool renderingFlag, PointF point, int index, Model data)
+        public static void OnMouseLeftClickEvent(bool renderingFlag, PointF point)
         {
             if (!renderingFlag)
             {
-                MethodInfo[] methods = data.Types[index].GetMethods();
-                foreach (var method in methods)
-                {
-                    if (method.IsStatic)
-                    {
-                        PreviewMethod = method;
-                        break;
-                    }
-                }
-                /*
-                PreviewMethod = data.Types[index].GetMethod("Preview");
-                */
                 renderPoints.Add(point);   //добавление еще одной точки, если отрисовка только началась
             }
             renderPoints.Add(point);
@@ -142,10 +145,5 @@ namespace Edit
                 FinishDrawingFigure(index, data);
             }
         }
-
-
-
-
-
     }
 }

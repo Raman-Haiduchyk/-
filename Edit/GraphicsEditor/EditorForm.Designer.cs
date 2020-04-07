@@ -59,6 +59,7 @@
             this.instrumentBox.Name = "instrumentBox";
             this.instrumentBox.Size = new System.Drawing.Size(152, 23);
             this.instrumentBox.TabIndex = 3;
+            this.instrumentBox.SelectedIndexChanged += new System.EventHandler(this.instrumentBox_SelectedIndexChanged);
             // 
             // penColorDialog
             // 
