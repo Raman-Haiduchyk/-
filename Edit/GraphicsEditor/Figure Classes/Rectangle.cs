@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class Rectangle : Polygon          
     {
         public float SideA, SideB;    //стороны прямоугольника (для будущего редактирования фигур)

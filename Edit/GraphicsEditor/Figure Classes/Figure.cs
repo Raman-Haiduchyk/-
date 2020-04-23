@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 using System.Drawing;
 
 namespace Edit
-{
+{   [Serializable]
     abstract class Figure                                   
     {
         public string Name { get; set; }
 
         //protected int layout { get; set; }  управление слоями в будущем
-
-        protected Pen FigurePen;
-
-        protected SolidBrush FigureBrush;
+        protected int BorderWidth;
+        protected Color BrushColor;
+        protected Color PenColor;
+       
 
         protected static Color prevCol = Color.FromArgb(100, 0, 0, 0);
 
         protected Figure(string str, Color brushCol, Color penColor, int borderWidth) 
         {
             Name = str;
-            FigurePen = new Pen(penColor, borderWidth);
-            FigureBrush = new SolidBrush(brushCol);
+            BrushColor = brushCol;
+            BorderWidth = borderWidth;
+            PenColor = penColor;
         }
 
         public abstract void Draw(Graphics graphics);

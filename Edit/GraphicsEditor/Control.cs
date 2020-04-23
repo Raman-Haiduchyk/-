@@ -77,13 +77,13 @@ namespace Edit
                 try
                 {
                     Figure shape = (Figure)Activator.CreateInstance(data.Types[index], new object[] 
-                    { "pol", brushColor, penColor, BorderWidth, Sides, renderPoints.ToArray() });
+                    { "figure", brushColor, penColor, BorderWidth, Sides, renderPoints.ToArray() });
                     data.Figures.Add(shape);
                 }
                 catch
                 {
                     Figure shape = (Figure)Activator.CreateInstance(data.Types[index], new object[] 
-                    { "pol", brushColor, penColor, BorderWidth, renderPoints.ToArray() });
+                    { "figure", brushColor, penColor, BorderWidth, renderPoints.ToArray() });
                     data.Figures.Add(shape);
                 }
             }

@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class Line : Figure
     {
         protected PointF A, B;
@@ -20,6 +21,7 @@ namespace Edit
 
         public override void Draw(Graphics graphics)
         {
+            Pen FigurePen = new Pen(PenColor, BorderWidth);
             graphics.DrawLine(FigurePen, A, B);
         }
 

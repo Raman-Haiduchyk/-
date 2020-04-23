@@ -4,6 +4,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class Ellipse : Figure
     {
         public float MajorSemiaxis { get; set; }
@@ -29,6 +30,8 @@ namespace Edit
 
         public override void Draw(Graphics graphics)
         {
+            Pen FigurePen = new Pen(PenColor, BorderWidth);
+            SolidBrush FigureBrush = new SolidBrush(BrushColor);
             graphics.FillEllipse(FigureBrush, Center.X - MajorSemiaxis, Center.Y - MinorSemiaxis, 
                 2 * MajorSemiaxis, 2 * MinorSemiaxis);
             graphics.DrawEllipse(FigurePen, Center.X - MajorSemiaxis, Center.Y - MinorSemiaxis, 

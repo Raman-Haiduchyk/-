@@ -29,6 +29,8 @@ namespace Edit
                 instrumentBox.Items.Add(T.Name);
             }
             instrumentBox.SelectedIndex = 0;
+            foreach (Figure F in Data.Figures)
+                figureList.Items.Add(F.Name);
 
             pictureBox.MouseWheel += new MouseEventHandler(pictureBox_MouseWheel);
 
@@ -58,7 +60,16 @@ namespace Edit
         {
             Control.DrawFigureList(Data, e.Graphics);
             isRendering = Control.PreviewFigure(e.Graphics, instrumentBox.SelectedIndex, Data);
-            if (!isRendering) { Control.DrawFigureList(Data, e.Graphics); }
+            if (!isRendering) 
+            { 
+                Control.DrawFigureList(Data, e.Graphics);
+                if (figureList.Items.Count != Data.Figures.Count)
+                {
+                    figureList.Items.Clear();
+                    foreach (Figure fig in Data.Figures)
+                        figureList.Items.Add(fig.Name);
+                }
+            }
         }
 
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -102,11 +113,29 @@ namespace Edit
             brushColorBtn.BackColor = Control.brushColor;
         }
 
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if (figureList.Items.Count != 0)
+            {
+                if (!Serialization.SaveFigure(figureList.SelectedIndex, Data))
+                    MessageBox.Show("Ошибка");
+            }
+        }
+        private void loadBtn_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog.FileName;
+            if (!Serialization.LoadFigure(Data, filename))
+                MessageBox.Show("Ошибка");
+        }
 
         //выбор инструмента рисования
         private void instrumentBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Control.OnBoxChangeEvent(instrumentBox.SelectedIndex, Data);
         }
+
+        
     }
 }

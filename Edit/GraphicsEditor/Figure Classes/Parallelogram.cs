@@ -5,6 +5,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class Parallelogram : Polygon       
     {
         protected double SideA, SideB;

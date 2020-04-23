@@ -36,6 +36,10 @@
             this.brushColorBtn = new System.Windows.Forms.Button();
             this.penLbl = new System.Windows.Forms.Label();
             this.brushLbl = new System.Windows.Forms.Label();
+            this.figureList = new System.Windows.Forms.ListBox();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.loadBtn = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +109,47 @@
             this.brushLbl.TabIndex = 7;
             this.brushLbl.Text = "BrushColor";
             // 
+            // figureList
+            // 
+            this.figureList.FormattingEnabled = true;
+            this.figureList.ItemHeight = 15;
+            this.figureList.Location = new System.Drawing.Point(12, 194);
+            this.figureList.Name = "figureList";
+            this.figureList.Size = new System.Drawing.Size(152, 94);
+            this.figureList.TabIndex = 8;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(12, 307);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.TabIndex = 9;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // loadBtn
+            // 
+            this.loadBtn.Location = new System.Drawing.Point(12, 337);
+            this.loadBtn.Name = "loadBtn";
+            this.loadBtn.Size = new System.Drawing.Size(75, 23);
+            this.loadBtn.TabIndex = 10;
+            this.loadBtn.Text = "Load";
+            this.loadBtn.UseVisualStyleBackColor = true;
+            this.loadBtn.Click += new System.EventHandler(this.loadBtn_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 450);
+            this.Controls.Add(this.loadBtn);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.figureList);
             this.Controls.Add(this.brushLbl);
             this.Controls.Add(this.penLbl);
             this.Controls.Add(this.brushColorBtn);
@@ -136,6 +176,10 @@
         private System.Windows.Forms.Button brushColorBtn;
         private System.Windows.Forms.Label penLbl;
         private System.Windows.Forms.Label brushLbl;
+        private System.Windows.Forms.ListBox figureList;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button loadBtn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

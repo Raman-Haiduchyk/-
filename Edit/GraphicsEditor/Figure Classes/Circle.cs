@@ -4,6 +4,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class Circle:Ellipse
     {
         public double Radius { get; set; }        // радиус (для будущего редактирования фигур)

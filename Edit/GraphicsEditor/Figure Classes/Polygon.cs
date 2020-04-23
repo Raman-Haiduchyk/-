@@ -5,6 +5,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class Polygon : Figure         
     {
         protected List<PointF> Points;      //множество точек многоугольника
@@ -20,6 +21,8 @@ namespace Edit
 
         override public void Draw(Graphics graphics) 
         {
+            Pen FigurePen = new Pen(PenColor, BorderWidth);
+            SolidBrush FigureBrush = new SolidBrush(BrushColor);
             graphics.FillPolygon(FigureBrush, Points.ToArray());
             graphics.DrawPolygon(FigurePen, Points.ToArray());
         } 

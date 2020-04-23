@@ -5,6 +5,7 @@ using System.Drawing;
 
 namespace Edit
 {
+    [Serializable]
     class RegularPolygon : Polygon     
     {
         public double Angle;        //угол поворота в радианах
