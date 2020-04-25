@@ -43,6 +43,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.saveListBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.loadListBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,11 +156,22 @@
             this.saveListBtn.UseVisualStyleBackColor = true;
             this.saveListBtn.Click += new System.EventHandler(this.saveListBtn_Click);
             // 
+            // loadListBtn
+            // 
+            this.loadListBtn.Location = new System.Drawing.Point(13, 415);
+            this.loadListBtn.Name = "loadListBtn";
+            this.loadListBtn.Size = new System.Drawing.Size(151, 23);
+            this.loadListBtn.TabIndex = 12;
+            this.loadListBtn.Text = "Load list";
+            this.loadListBtn.UseVisualStyleBackColor = true;
+            this.loadListBtn.Click += new System.EventHandler(this.loadListBtn_Click);
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 450);
+            this.Controls.Add(this.loadListBtn);
             this.Controls.Add(this.saveListBtn);
             this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.saveBtn);
@@ -197,6 +209,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button saveListBtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Button loadListBtn;
     }
 }
 

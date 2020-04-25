@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Drawing;
+using System.IO;
 
 namespace Edit
 {
@@ -142,16 +143,21 @@ namespace Edit
         {
                 
             if (folderBrowserDialog.ShowDialog() == DialogResult.Cancel) return;
-           
-            
             for(int i = 0; i < Data.Figures.Count; i++)
             {
                 Figure fig = Data.Figures[i];
                 string filename = folderBrowserDialog.SelectedPath + "\\" + fig.Name + ".dat";
-                MessageBox.Show(filename);
                 if (!Serialization.SaveFigure(filename, i, Data))
                     MessageBox.Show($"Ошибка : не удалось сохранить {fig.Name}");
             }
+        }
+
+        private void loadListBtn_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == DialogResult.Cancel) return;
+            string[] filenames = Directory.GetFiles(folderBrowserDialog.SelectedPath);
+            foreach (string filename in filenames)
+                Serialization.LoadFigure(Data, filename);
         }
     }
 }
