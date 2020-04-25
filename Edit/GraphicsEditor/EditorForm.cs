@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Reflection;
 using System.Drawing;
 
 namespace Edit
@@ -22,7 +23,7 @@ namespace Edit
             brushColorBtn.BackColor = Control.brushColor;
             Control.ListInitialization(Data);
             // получение списка всех классов для рисования
-            Data.Types = new List<Type>(Assembling.ReflectiveEnumerator.GetEnumerableOfType<Figure>());
+            Data.Types = new List<Type>(Assembling.ReflectiveEnumerator.GetEnumerableOfType<Figure>(Assembly.GetExecutingAssembly()));
             Data.SortTypesWithName();
             foreach (Type T in Data.Types)
             {
@@ -115,16 +116,17 @@ namespace Edit
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (figureList.Items.Count != 0)
+            if (figureList.SelectedIndex != -1)
             {
-                if (!Serialization.SaveFigure(figureList.SelectedIndex, Data))
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+                string filename = saveFileDialog.FileName;
+                if (!Serialization.SaveFigure(filename, figureList.SelectedIndex, Data))
                     MessageBox.Show("Ошибка");
             }
         }
         private void loadBtn_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
-                return;
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel) return;
             string filename = openFileDialog.FileName;
             if (!Serialization.LoadFigure(Data, filename))
                 MessageBox.Show("Ошибка");
@@ -136,6 +138,20 @@ namespace Edit
             Control.OnBoxChangeEvent(instrumentBox.SelectedIndex, Data);
         }
 
-        
+        private void saveListBtn_Click(object sender, EventArgs e)
+        {
+                
+            if (folderBrowserDialog.ShowDialog() == DialogResult.Cancel) return;
+           
+            
+            for(int i = 0; i < Data.Figures.Count; i++)
+            {
+                Figure fig = Data.Figures[i];
+                string filename = folderBrowserDialog.SelectedPath + "\\" + fig.Name + ".dat";
+                MessageBox.Show(filename);
+                if (!Serialization.SaveFigure(filename, i, Data))
+                    MessageBox.Show($"Ошибка : не удалось сохранить {fig.Name}");
+            }
+        }
     }
 }

@@ -9,8 +9,23 @@ namespace Edit
 
         public List<Type> Types;
 
+
+
         public Model()
         {
+        }
+
+        public void AddFigure(Figure fig)
+        {
+            int ID = 0;
+            string bufName = fig.Name;
+            while (IfConsist(bufName))
+            {
+                bufName = fig.Name + "_" + ID.ToString(); 
+                ID++;
+            }
+            fig.Name = bufName;
+            Figures.Add(fig);
         }
 
         private static int CompareByName(Type class1, Type class2)
@@ -22,6 +37,15 @@ namespace Edit
         public void SortTypesWithName()
         {
             Types.Sort(CompareByName);
+        }
+
+        public bool IfConsist(string name)
+        {
+            foreach (Figure fig in Figures)
+            {
+                if (name == fig.Name) return true;
+            }
+            return false;
         }
 
       /*  public void SortWithLayout()

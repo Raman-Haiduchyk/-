@@ -10,20 +10,20 @@ namespace Edit
 {
     static class Serialization
     {
-        public static bool SaveFigure(int index, Model data)
+        public static bool SaveFigure(string filename, int index, Model data)
         {
             Figure fig = data.Figures[index];
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                using (FileStream fs = new FileStream(string.Concat(fig.Name, ".dat"), FileMode.Create))
+                using (FileStream fs = new FileStream(filename, FileMode.Create))
                 {
                     formatter.Serialize(fs, fig);
 
                 }
                 return true;
             }
-            catch(Exception ex)
+            catch
             {
 
                 return false;

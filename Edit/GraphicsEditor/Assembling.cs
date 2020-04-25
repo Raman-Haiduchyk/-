@@ -11,11 +11,10 @@ namespace Edit
     {
         public static class ReflectiveEnumerator
         {
-            public static List<Type> GetEnumerableOfType<T>() where T : class
+            public static List<Type> GetEnumerableOfType<T>(Assembly asm) where T : class
             {
                 List<Type> classes = new List<Type>();
-                foreach (Type type in
-                    Assembly.GetAssembly(typeof(T)).GetTypes()
+                foreach (Type type in asm.GetTypes()
                     .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(T))))
                 {
                     classes.Add(type);
@@ -23,5 +22,6 @@ namespace Edit
                 return classes;
             }
         }
+               
     }
 }

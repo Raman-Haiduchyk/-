@@ -40,6 +40,9 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.loadBtn = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveListBtn = new System.Windows.Forms.Button();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,14 +116,14 @@
             // 
             this.figureList.FormattingEnabled = true;
             this.figureList.ItemHeight = 15;
-            this.figureList.Location = new System.Drawing.Point(12, 194);
+            this.figureList.Location = new System.Drawing.Point(12, 226);
             this.figureList.Name = "figureList";
             this.figureList.Size = new System.Drawing.Size(152, 94);
             this.figureList.TabIndex = 8;
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(12, 307);
+            this.saveBtn.Location = new System.Drawing.Point(12, 326);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 9;
@@ -130,7 +133,7 @@
             // 
             // loadBtn
             // 
-            this.loadBtn.Location = new System.Drawing.Point(12, 337);
+            this.loadBtn.Location = new System.Drawing.Point(12, 355);
             this.loadBtn.Name = "loadBtn";
             this.loadBtn.Size = new System.Drawing.Size(75, 23);
             this.loadBtn.TabIndex = 10;
@@ -142,11 +145,22 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // saveListBtn
+            // 
+            this.saveListBtn.Location = new System.Drawing.Point(12, 385);
+            this.saveListBtn.Name = "saveListBtn";
+            this.saveListBtn.Size = new System.Drawing.Size(152, 23);
+            this.saveListBtn.TabIndex = 11;
+            this.saveListBtn.Text = "Save list";
+            this.saveListBtn.UseVisualStyleBackColor = true;
+            this.saveListBtn.Click += new System.EventHandler(this.saveListBtn_Click);
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 450);
+            this.Controls.Add(this.saveListBtn);
             this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.figureList);
@@ -180,6 +194,9 @@
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button loadBtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button saveListBtn;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 

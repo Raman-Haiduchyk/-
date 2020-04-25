@@ -26,12 +26,7 @@ namespace Edit
         public static void ListInitialization(Model model)
         {
             model.Figures = new List<Figure>();
-            Rectangle rect = new Rectangle("Rect", brushColor, penColor, BorderWidth, 
-                                            new PointF(20, 20), new PointF(40, 40));
-            model.Figures.Add(rect);
-            Parallelogram par = new Parallelogram("par", brushColor, penColor, BorderWidth, 
-                                                   new PointF(6, 100), new PointF(100, 150), new PointF(120, 200));
-            model.Figures.Add(par);
+     
         }
 
         //Отрисовка списка фигур
@@ -78,13 +73,13 @@ namespace Edit
                 {
                     Figure shape = (Figure)Activator.CreateInstance(data.Types[index], new object[] 
                     { "figure", brushColor, penColor, BorderWidth, Sides, renderPoints.ToArray() });
-                    data.Figures.Add(shape);
+                    data.AddFigure(shape);
                 }
                 catch
                 {
                     Figure shape = (Figure)Activator.CreateInstance(data.Types[index], new object[] 
                     { "figure", brushColor, penColor, BorderWidth, renderPoints.ToArray() });
-                    data.Figures.Add(shape);
+                    data.AddFigure(shape);
                 }
             }
             finally { }
