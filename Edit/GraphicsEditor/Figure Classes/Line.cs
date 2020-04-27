@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using FigureClass;
 
-namespace Edit
+namespace GraphicsEditor
 {
     [Serializable]
     class Line : Figure

@@ -1,4 +1,4 @@
-﻿namespace Edit
+﻿namespace GraphicsEditor
 {
     partial class EditorForm
     {
@@ -44,6 +44,7 @@
             this.saveListBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.loadListBtn = new System.Windows.Forms.Button();
+            this.loadClassBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,11 +167,22 @@
             this.loadListBtn.UseVisualStyleBackColor = true;
             this.loadListBtn.Click += new System.EventHandler(this.loadListBtn_Click);
             // 
+            // loadClassBtn
+            // 
+            this.loadClassBtn.Location = new System.Drawing.Point(496, 384);
+            this.loadClassBtn.Name = "loadClassBtn";
+            this.loadClassBtn.Size = new System.Drawing.Size(75, 54);
+            this.loadClassBtn.TabIndex = 13;
+            this.loadClassBtn.Text = "Load Class";
+            this.loadClassBtn.UseVisualStyleBackColor = true;
+            this.loadClassBtn.Click += new System.EventHandler(this.loadClassBtn_Click);
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 450);
+            this.Controls.Add(this.loadClassBtn);
             this.Controls.Add(this.loadListBtn);
             this.Controls.Add(this.saveListBtn);
             this.Controls.Add(this.loadBtn);
@@ -210,6 +222,7 @@
         private System.Windows.Forms.Button saveListBtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Button loadListBtn;
+        private System.Windows.Forms.Button loadClassBtn;
     }
 }
 

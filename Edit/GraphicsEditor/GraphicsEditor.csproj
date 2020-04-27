@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FigureClass">
+      <HintPath>..\FigureClass\bin\Debug\FigureClass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,11 +52,10 @@
     <Compile Include="Assembling.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="Figure Classes\Parallelogram.cs" />
+    <Compile Include="Figure Classes\Polygon.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Figure Classes\Circle.cs" />
     <Compile Include="Figure Classes\Ellipse.cs" />
-    <Compile Include="Figure Classes\Figure.cs" />
-    <Compile Include="Figure Classes\Polygon.cs" />
     <Compile Include="Figure Classes\Line.cs" />
     <Compile Include="Figure Classes\Rectangle.cs" />
     <Compile Include="Figure Classes\RegularPolygon.cs" />

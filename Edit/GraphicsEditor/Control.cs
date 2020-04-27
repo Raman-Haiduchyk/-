@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
 using System.Reflection;
+using FigureClass;
 
-namespace Edit
+namespace GraphicsEditor
 {
     static class Control           // класс организации взаимодействия GUI с классом хранения данных 
     {

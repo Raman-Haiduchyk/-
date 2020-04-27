@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicsEditor", "GraphicsEditor\GraphicsEditor.csproj", "{FA21BF9E-E8E1-4B91-B7A5-8C486E94940A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureClass", "FigureClass\FigureClass.csproj", "{4B5B2D48-5CDD-4665-967D-EAD0BFC132EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrapeziumClass", "TrapeziumClass\TrapeziumClass.csproj", "{2F42D031-7D3D-4B8D-87FE-8309A46DB97D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FA21BF9E-E8E1-4B91-B7A5-8C486E94940A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA21BF9E-E8E1-4B91-B7A5-8C486E94940A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA21BF9E-E8E1-4B91-B7A5-8C486E94940A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B5B2D48-5CDD-4665-967D-EAD0BFC132EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B5B2D48-5CDD-4665-967D-EAD0BFC132EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B5B2D48-5CDD-4665-967D-EAD0BFC132EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B5B2D48-5CDD-4665-967D-EAD0BFC132EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F42D031-7D3D-4B8D-87FE-8309A46DB97D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F42D031-7D3D-4B8D-87FE-8309A46DB97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F42D031-7D3D-4B8D-87FE-8309A46DB97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F42D031-7D3D-4B8D-87FE-8309A46DB97D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

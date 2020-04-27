@@ -4,8 +4,9 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Drawing;
 using System.IO;
+using FigureClass;
 
-namespace Edit
+namespace GraphicsEditor
 {
     public partial class EditorForm : Form
     {
@@ -158,6 +159,27 @@ namespace Edit
             string[] filenames = Directory.GetFiles(folderBrowserDialog.SelectedPath);
             foreach (string filename in filenames)
                 Serialization.LoadFigure(Data, filename);
+        }
+
+        private void loadClassBtn_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel) return;
+            string filename = openFileDialog.FileName;
+            try
+            {
+                List<Type> list = Assembling.ReflectiveEnumerator.GetEnumerableOfType<Figure>(Assembly.LoadFile(filename));
+                Data.Types.AddRange(list);
+                foreach (Type T in list)
+                {
+                    instrumentBox.Items.Add(T.Name);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка загрузки");
+            }
+
         }
     }
 }

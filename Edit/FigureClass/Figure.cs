@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace GraphicsEditor
+namespace FigureClass
 
 {   
     [Serializable]
-    abstract class Figure                                   
+    abstract public class Figure                                   
     {
         public string Name { get; set; }
 

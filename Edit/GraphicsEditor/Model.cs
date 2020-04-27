@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using FigureClass;
 
-namespace Edit
+namespace GraphicsEditor
 {
     class Model     //класс хранения данных о фигурах и классах сборки при работе с редактором
     {

@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using FigureClass;
 
-namespace Edit
+namespace GraphicsEditor
 {
     static class Serialization
     {

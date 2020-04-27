@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using FigureClass;
 
-namespace Edit
+namespace GraphicsEditor
 {
     [Serializable]
     class Rectangle : Polygon          
     {
         public float SideA, SideB;    //стороны прямоугольника (для будущего редактирования фигур)
-
 
         // В конструктор передаются левая верхняя
         // и правая нижняя точки
