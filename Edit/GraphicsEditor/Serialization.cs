@@ -48,5 +48,43 @@ namespace GraphicsEditor
                 return false;
             }
         }
+
+
+        public static bool SaveList(string filename, Model data)
+        {
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream fs = new FileStream(filename, FileMode.Create))
+                {
+                    formatter.Serialize(fs, data.Figures);
+
+                }
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
+
+        public static bool LoadList(Model data, string path)
+        {
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    List<Figure> list = (List<Figure>)formatter.Deserialize(fs);
+                    data.Figures.AddRange(list);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

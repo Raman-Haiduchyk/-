@@ -41,10 +41,12 @@
             this.loadBtn = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.saveListBtn = new System.Windows.Forms.Button();
+            this.saveListFouldBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.loadListBtn = new System.Windows.Forms.Button();
+            this.loadListFouldBtn = new System.Windows.Forms.Button();
             this.loadClassBtn = new System.Windows.Forms.Button();
+            this.saveListBtn = new System.Windows.Forms.Button();
+            this.loadListBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,9 +129,9 @@
             // 
             this.saveBtn.Location = new System.Drawing.Point(12, 326);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.Size = new System.Drawing.Size(152, 23);
             this.saveBtn.TabIndex = 9;
-            this.saveBtn.Text = "Save";
+            this.saveBtn.Text = "Save figure";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
@@ -137,9 +139,9 @@
             // 
             this.loadBtn.Location = new System.Drawing.Point(12, 355);
             this.loadBtn.Name = "loadBtn";
-            this.loadBtn.Size = new System.Drawing.Size(75, 23);
+            this.loadBtn.Size = new System.Drawing.Size(152, 23);
             this.loadBtn.TabIndex = 10;
-            this.loadBtn.Text = "Load";
+            this.loadBtn.Text = "Load figure";
             this.loadBtn.UseVisualStyleBackColor = true;
             this.loadBtn.Click += new System.EventHandler(this.loadBtn_Click);
             // 
@@ -147,25 +149,25 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // saveListBtn
+            // saveListFouldBtn
             // 
-            this.saveListBtn.Location = new System.Drawing.Point(12, 385);
-            this.saveListBtn.Name = "saveListBtn";
-            this.saveListBtn.Size = new System.Drawing.Size(152, 23);
-            this.saveListBtn.TabIndex = 11;
-            this.saveListBtn.Text = "Save list";
-            this.saveListBtn.UseVisualStyleBackColor = true;
-            this.saveListBtn.Click += new System.EventHandler(this.saveListBtn_Click);
+            this.saveListFouldBtn.Location = new System.Drawing.Point(12, 385);
+            this.saveListFouldBtn.Name = "saveListFouldBtn";
+            this.saveListFouldBtn.Size = new System.Drawing.Size(152, 23);
+            this.saveListFouldBtn.TabIndex = 11;
+            this.saveListFouldBtn.Text = "Save list-foulder";
+            this.saveListFouldBtn.UseVisualStyleBackColor = true;
+            this.saveListFouldBtn.Click += new System.EventHandler(this.saveListBtn_Click);
             // 
-            // loadListBtn
+            // loadListFouldBtn
             // 
-            this.loadListBtn.Location = new System.Drawing.Point(13, 415);
-            this.loadListBtn.Name = "loadListBtn";
-            this.loadListBtn.Size = new System.Drawing.Size(151, 23);
-            this.loadListBtn.TabIndex = 12;
-            this.loadListBtn.Text = "Load list";
-            this.loadListBtn.UseVisualStyleBackColor = true;
-            this.loadListBtn.Click += new System.EventHandler(this.loadListBtn_Click);
+            this.loadListFouldBtn.Location = new System.Drawing.Point(13, 415);
+            this.loadListFouldBtn.Name = "loadListFouldBtn";
+            this.loadListFouldBtn.Size = new System.Drawing.Size(151, 23);
+            this.loadListFouldBtn.TabIndex = 12;
+            this.loadListFouldBtn.Text = "Load list-foulder";
+            this.loadListFouldBtn.UseVisualStyleBackColor = true;
+            this.loadListFouldBtn.Click += new System.EventHandler(this.loadListBtn_Click);
             // 
             // loadClassBtn
             // 
@@ -177,14 +179,36 @@
             this.loadClassBtn.UseVisualStyleBackColor = true;
             this.loadClassBtn.Click += new System.EventHandler(this.loadClassBtn_Click);
             // 
+            // saveListBtn
+            // 
+            this.saveListBtn.Location = new System.Drawing.Point(170, 386);
+            this.saveListBtn.Name = "saveListBtn";
+            this.saveListBtn.Size = new System.Drawing.Size(151, 23);
+            this.saveListBtn.TabIndex = 14;
+            this.saveListBtn.Text = "Save list-file";
+            this.saveListBtn.UseVisualStyleBackColor = true;
+            this.saveListBtn.Click += new System.EventHandler(this.saveListFileBtn_Click);
+            // 
+            // loadListBtn
+            // 
+            this.loadListBtn.Location = new System.Drawing.Point(170, 415);
+            this.loadListBtn.Name = "loadListBtn";
+            this.loadListBtn.Size = new System.Drawing.Size(151, 23);
+            this.loadListBtn.TabIndex = 15;
+            this.loadListBtn.Text = "Load list-file";
+            this.loadListBtn.UseVisualStyleBackColor = true;
+            this.loadListBtn.Click += new System.EventHandler(this.loadListFileBtn_Click);
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 450);
-            this.Controls.Add(this.loadClassBtn);
             this.Controls.Add(this.loadListBtn);
             this.Controls.Add(this.saveListBtn);
+            this.Controls.Add(this.loadClassBtn);
+            this.Controls.Add(this.loadListFouldBtn);
+            this.Controls.Add(this.saveListFouldBtn);
             this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.figureList);
@@ -219,10 +243,12 @@
         private System.Windows.Forms.Button loadBtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.Button saveListBtn;
+        private System.Windows.Forms.Button saveListFouldBtn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.Button loadListBtn;
+        private System.Windows.Forms.Button loadListFouldBtn;
         private System.Windows.Forms.Button loadClassBtn;
+        private System.Windows.Forms.Button saveListBtn;
+        private System.Windows.Forms.Button loadListBtn;
     }
 }
 

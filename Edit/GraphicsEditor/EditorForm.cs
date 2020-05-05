@@ -181,5 +181,24 @@ namespace GraphicsEditor
             }
 
         }
+
+        private void saveListFileBtn_Click(object sender, EventArgs e)
+        {
+            if (figureList.Items.Count > 0)
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
+                string filename = saveFileDialog.FileName;
+                if (!Serialization.SaveList(filename, Data))
+                    MessageBox.Show("Ошибка");
+            }
+        }
+
+        private void loadListFileBtn_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel) return;
+            string filename = openFileDialog.FileName;
+            if (!Serialization.LoadList(Data, filename))
+                MessageBox.Show("Ошибка");
+        }
     }
 }
